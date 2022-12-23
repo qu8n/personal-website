@@ -3,44 +3,38 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoPenn from '@/images/logos/penn.svg'
 import logoQuan from '@/images/logos/quan.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
-    description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+    name: '[Project name]',
+    description: '[Project description]',
+    link: { href: 'https://github.com', label: 'GitHub Repo' },
     logo: logoQuan,
   },
   {
-    name: 'Animaginary',
-    description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoPenn,
+    name: '[Project name]',
+    description: '[Project description]',
+    link: { href: 'https://github.com', label: 'GitHub Repo' },
+    logo: logoQuan,
   },
   {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoPenn,
+    name: '[Project name]',
+    description: '[Project description]',
+    link: { href: 'https://github.com', label: 'GitHub Repo' },
+    logo: logoQuan,
   },
   {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoPenn,
+    name: '[Project name]',
+    description: '[Project description]',
+    link: { href: 'https://github.com', label: 'GitHub Repo' },
+    logo: logoQuan,
   },
   {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoPenn,
+    name: '[Project name]',
+    description: '[Project description]',
+    link: { href: 'https://github.com', label: 'GitHub Repo' },
+    logo: logoQuan,
   },
 ]
 
@@ -60,15 +54,9 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects - Quan Nguyen</title>
-        <meta
-          name="description"
-          content="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-        />
+        <meta name="description" />
       </Head>
-      <SimpleLayout
-        title="Projects"
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-      >
+      <SimpleLayout title="Projects" intro="[Description]">
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
