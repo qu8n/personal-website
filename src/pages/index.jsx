@@ -99,14 +99,6 @@ function Article({ article }) {
   )
 }
 
-// function SocialLink({ icon: Icon, ...props }) {
-//   return (
-//     <Link className="group -m-1 p-1" {...props}>
-//       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-//     </Link>
-//   )
-// }
-
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
     <li className={clsx(className, 'flex')}>
@@ -238,7 +230,7 @@ export default function Home({ articles }) {
           </p>
         </div>
       </Container>
-      <Container className="mt-24 md:mt-28">
+      <Container className="mt-20 md:mt-20">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
@@ -246,8 +238,8 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
             <ContactCard />
+            <Resume />
           </div>
         </div>
       </Container>
