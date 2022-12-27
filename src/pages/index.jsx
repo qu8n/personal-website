@@ -1,11 +1,16 @@
 import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
-
+import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
+import {
+  TwitterIcon,
+  InstagramIcon,
+  GitHubIcon,
+  LinkedInIcon,
+} from '@/components/SocialIcons'
 import logoMetawork from '@/images/logos/metawork.svg'
 import logoBentoML from '@/images/logos/bentoml.svg'
 import logoPenn from '@/images/logos/penn.svg'
@@ -13,7 +18,7 @@ import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 
-function BriefcaseIcon(props) {
+function ResumeIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -49,6 +54,36 @@ function ArrowDownIcon(props) {
   )
 }
 
+function LoopIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
+      />
+    </svg>
+  )
+}
+
+function MailIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+      />
+    </svg>
+  )
+}
+
 function Article({ article }) {
   return (
     <Card as="article">
@@ -64,11 +99,45 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+// function SocialLink({ icon: Icon, ...props }) {
+//   return (
+//     <Link className="group -m-1 p-1" {...props}>
+//       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+//     </Link>
+//   )
+// }
+
+function SocialLink({ className, href, children, icon: Icon }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
+    <li className={clsx(className, 'flex')}>
+      <Link
+        href={href}
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      >
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <span className="ml-4">{children}</span>
+      </Link>
+    </li>
+  )
+}
+
+function ContactCard() {
+  return (
+    <div className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-500/40">
+      <SocialLink href="#" icon={GitHubIcon}>
+        Connect on GitHub
+      </SocialLink>
+      <SocialLink href="#" icon={LinkedInIcon} className="mt-3">
+        Connect on LinkedIn
+      </SocialLink>
+      <SocialLink
+        href="mailto:quanwnn@gmail.com"
+        icon={MailIcon}
+        className="mt-3"
+      >
+        Email me
+      </SocialLink>
+    </div>
   )
 }
 
@@ -95,15 +164,15 @@ function Resume() {
   ]
 
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+    <div className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-500/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Resume Snippet</span>
+        <ResumeIcon className="h-6 w-6 flex-none" />
+        <span className="ml-3">Experience</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-500/50 dark:bg-zinc-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -167,18 +236,6 @@ export default function Home({ articles }) {
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             [Subheadline]
           </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
         </div>
       </Container>
       <Container className="mt-24 md:mt-28">
@@ -190,6 +247,7 @@ export default function Home({ articles }) {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Resume />
+            <ContactCard />
           </div>
         </div>
       </Container>
