@@ -4,36 +4,74 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoQuan from '@/images/logos/quan.svg'
+import logoShopify from '@/images/logos/shopify.svg'
+import logoNYC from '@/images/logos/nyc.svg'
+import logoRuby from '@/images/logos/ruby.svg'
+import logoTwitter from '@/images/logos/twitter.svg'
+import logoArc from '@/images/logos/arc.svg'
 
 const projects = [
   {
-    name: '[Project name]',
-    description: '[Project description]',
-    link: { href: 'https://github.com', label: 'GitHub Repo' },
-    logo: logoQuan,
+    name: 'NYC Rent Dashboard',
+    description:
+      'Dashboard showing the latest historical median rent data in NYC across 5 boroughs and ~200 areas. Data soure: StreetEasy.',
+    keywords: 'Streamlit, Python, requests, zipfile, io, pandas, altair',
+    link: { href: 'https://nycrent.streamlit.app/', label: 'Streamlit App' },
+    logo: logoNYC,
   },
   {
-    name: '[Project name]',
-    description: '[Project description]',
-    link: { href: 'https://github.com', label: 'GitHub Repo' },
-    logo: logoQuan,
+    name: 'Arc Browser Extension',
+    description:
+      'Boost (browser extension) for the Arc browser that activates a countdown upon entering distracting websites.',
+    keywords: 'JavaScript, CSS',
+    link: {
+      href: 'https://github.com/quanvs/arc-boost-mindful-media',
+      label: 'GitHub Repo',
+    },
+    logo: logoArc,
   },
   {
-    name: '[Project name]',
-    description: '[Project description]',
-    link: { href: 'https://github.com', label: 'GitHub Repo' },
-    logo: logoQuan,
+    name: 'Tweet Scheduler',
+    description:
+      'Full-stack Ruby on Rails web application that sends out tweets on a scheduled basis.',
+    keywords:
+      'Ruby, Ruby on Rails, Twitter API, Sidekiq and Redis (background jobs), PostgreSQL, Boostrap',
+    link: {
+      href: 'https://github.com/quanvs/tweet-scheduler',
+      label: 'GitHub Repo',
+    },
+    logo: logoTwitter,
   },
   {
-    name: '[Project name]',
-    description: '[Project description]',
-    link: { href: 'https://github.com', label: 'GitHub Repo' },
-    logo: logoQuan,
+    name: 'E-Commerce Store',
+    description:
+      'Online brand selling apparel & accessories with cultural designs. Sold over 1,000 items across 11 countries.',
+    keywords:
+      'Shopify, JavaScript, CSS, HTML, Liquid (Ruby-based markup language)',
+    link: { href: 'https://viettown.simvoly.com/', label: 'Archived Website' },
+    logo: logoShopify,
   },
   {
-    name: '[Project name]',
-    description: '[Project description]',
-    link: { href: 'https://github.com', label: 'GitHub Repo' },
+    name: 'Team Trip Automator',
+    description:
+      'Slack bot paired with full-stack Ruby on Rails application that automated team offsite operations. Built during my time at Metawork.',
+    keywords:
+      'Ruby, Ruby on Rails, PostgreSQL, Heroku, Slack API, Google Calendar API',
+    link: {
+      href: 'https://github.com/quanvs/metawork_opsbot',
+      label: 'Private GitHub Repo',
+    },
+    logo: logoRuby,
+  },
+  {
+    name: 'This Personal Website',
+    description:
+      "Minimal mod of Tailwind UI's Spotlight template that focuses on showcasing projects and articles.",
+    keywords: 'JavaScript, React, Next.js, Tailwind CSS',
+    link: {
+      href: 'https://github.com/quanvs/personal-website',
+      label: 'GitHub Repo',
+    },
     logo: logoQuan,
   },
 ]
@@ -56,7 +94,10 @@ export default function Projects() {
         <title>Projects - Quan Nguyen</title>
         <meta name="description" />
       </Head>
-      <SimpleLayout title="Projects" intro="[Description]">
+      <SimpleLayout
+        title="Projects"
+        intro="A collection of my personal and professional projects."
+      >
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
@@ -75,6 +116,7 @@ export default function Projects() {
                 <Card.Link href={project.link.href}>{project.name}</Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
+              <Card.Keywords>{project.keywords}</Card.Keywords>
               <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">{project.link.label}</span>
