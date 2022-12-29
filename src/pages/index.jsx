@@ -26,10 +26,10 @@ import logoArc from '@/images/logos/arc.svg'
 function ContactInfo() {
   return (
     <div className="mt-6 flex flex-col gap-3">
-      <SocialLink href="https://github.com" icon={GitHubIcon}>
+      <SocialLink href="https://github.com/qu8n" icon={GitHubIcon}>
         GitHub
       </SocialLink>
-      <SocialLink href="https://linkedin.com" icon={LinkedInIcon}>
+      <SocialLink href="https://linkedin.com/in/nguyenhq" icon={LinkedInIcon}>
         LinkedIn
       </SocialLink>
       <SocialLink href="mailto:quanwnn@gmail.com" icon={MailIcon}>
@@ -91,7 +91,7 @@ function Resume() {
         ))}
       </ol>
       <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download Full Resume
+        Request Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
@@ -113,7 +113,7 @@ const projects = [
       'Boost (browser extension) for the Arc browser that activates a countdown upon entering distracting websites.',
     keywords: 'JavaScript, CSS',
     link: {
-      href: 'https://github.com/quanvs/arc-boost-mindful-media',
+      href: 'https://github.com/qu8n/arc-boost-mindful-media',
       label: 'GitHub Repo',
     },
     logo: logoArc,
@@ -125,7 +125,7 @@ const projects = [
     keywords:
       'Ruby, Ruby on Rails, Twitter API, Sidekiq and Redis (background jobs), PostgreSQL, Boostrap',
     link: {
-      href: 'https://github.com/quanvs/tweet-scheduler',
+      href: 'https://github.com/qu8n/tweet-scheduler',
       label: 'GitHub Repo',
     },
     logo: logoTwitter,
@@ -146,7 +146,7 @@ const projects = [
     keywords:
       'Ruby, Ruby on Rails, PostgreSQL, Heroku, Slack API, Google Calendar API',
     link: {
-      href: 'https://github.com/quanvs/metawork_opsbot',
+      href: 'https://github.com/qu8n/metawork_opsbot',
       label: 'Private GitHub Repo',
     },
     logo: logoRuby,
@@ -154,10 +154,10 @@ const projects = [
   {
     name: 'This Personal Website',
     description:
-      "Minimal mod of Tailwind UI's Spotlight template that focuses on showcasing projects and articles.",
+      "Tailwind UI's Spotlight template mod that replaces the multi-page with a minimal one-pager.",
     keywords: 'JavaScript, React, Next.js, Tailwind CSS',
     link: {
-      href: 'https://github.com/quanvs/personal-website',
+      href: 'https://github.com/qu8n/personal-website',
       label: 'GitHub Repo',
     },
     logo: logoQuan,
@@ -199,6 +199,31 @@ function Projects() {
   )
 }
 
+function Description() {
+  return (
+    <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
+      I&#39;m Quan Nguyen. I&#39;m a Computer Science student at UPenn in the
+      <a
+        className={linkStyle}
+        href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
+      >
+        MCIT program
+      </a>
+      . Most recently, I was a
+      <a className={linkStyle} href="https://fellowship.mlh.io/">
+        Major League Hacking Fellow
+      </a>{' '}
+      and contributed to
+      <a className={linkStyle} href="https://github.com/bentoml/BentoML">
+        BentoML
+      </a>
+      , an open-source framework for operating machine learning models. Before
+      this, I worked in various business functions from startups to Fortune 500
+      companies.
+    </p>
+  )
+}
+
 const linkStyle =
   'pl-1.5 text-zinc-600/70 hover:text-sky-600/80 dark:text-zinc-300 dark:hover:text-sky-400'
 
@@ -231,33 +256,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div>
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Thanks for stopping by.
+              Hi there.
             </h1>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              I&#39;m Quan Nguyen. I&#39;m a Computer Science student at Penn in
-              the
-              <a
-                className={linkStyle}
-                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
-              >
-                MCIT program
-              </a>
-              . Most recently, I was a
-              <a
-                className={linkStyle}
-                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
-              >
-                Major League Hacking Fellow
-              </a>{' '}
-              and contributed to
-              <a
-                className={linkStyle}
-                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
-              >
-                BentoML
-              </a>
-              , an open-source framework for operating machine learning models.
-            </p>
+            <Description />
             <ContactInfo />
           </div>
           <div className="lg:pl-16 xl:pl-24">
