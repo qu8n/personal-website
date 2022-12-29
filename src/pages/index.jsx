@@ -1,82 +1,27 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
+import { SocialLink } from '@/components/SocialLink'
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  ResumeIcon,
+  ArrowDownIcon,
+  MailIcon,
+  LinkIcon,
+} from '@/components/Icons'
 import logoMetawork from '@/images/logos/metawork.svg'
 import logoBentoML from '@/images/logos/bentoml.svg'
 import logoPenn from '@/images/logos/penn.svg'
-
 import logoQuan from '@/images/logos/quan.svg'
 import logoShopify from '@/images/logos/shopify.svg'
 import logoNYC from '@/images/logos/nyc.svg'
 import logoRuby from '@/images/logos/ruby.svg'
 import logoTwitter from '@/images/logos/twitter.svg'
 import logoArc from '@/images/logos/arc.svg'
-
-function ResumeIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
-  )
-}
-
-function SocialLink({ className, href, children, icon: Icon }) {
-  return (
-    <li className={clsx(className, 'flex')}>
-      <Link
-        href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-sky-600 dark:text-zinc-200 dark:hover:text-sky-400"
-      >
-        <Icon className="h-6 w-6 fill-zinc-400 transition group-hover:fill-sky-600" />
-        <span className="ml-2">{children}</span>
-      </Link>
-    </li>
-  )
-}
 
 function ContactInfo() {
   return (
@@ -153,59 +98,6 @@ function Resume() {
   )
 }
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Quan Nguyen - Software Engineer</title>
-        <meta
-          name="description"
-          content="I’m Quan, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
-        />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-      </Head>
-      <Container className="mt-8">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div>
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Thanks for stopping by.
-            </h1>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              I&#39;m a Computer Science student with former experience
-              contributing to open-source projects, running an online e-commerce
-              business, and working as a finance & analytics professional.
-            </p>
-            <ContactInfo />
-          </div>
-          <div className="lg:pl-16 xl:pl-24">
-            <Resume />
-          </div>
-        </div>
-        <div>
-          <Projects />
-        </div>
-      </Container>
-    </>
-  )
-}
-
 const projects = [
   {
     name: 'NYC Rent Dashboard',
@@ -272,17 +164,6 @@ const projects = [
   },
 ]
 
-function LinkIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
-
 function Projects() {
   return (
     <>
@@ -315,6 +196,59 @@ function Projects() {
           </Card>
         ))}
       </ul>
+    </>
+  )
+}
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Quan Nguyen - Software Engineer</title>
+        <meta
+          name="description"
+          content="I’m Quan, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+        />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+      </Head>
+      <Container className="mt-8">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              Thanks for stopping by.
+            </h1>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              I&#39;m a Computer Science student with former experience
+              contributing to open-source projects, running an online e-commerce
+              business, and working as a finance & analytics professional.
+            </p>
+            <ContactInfo />
+          </div>
+          <div className="lg:pl-16 xl:pl-24">
+            <Resume />
+          </div>
+        </div>
+        <div>
+          <Projects />
+        </div>
+      </Container>
     </>
   )
 }
