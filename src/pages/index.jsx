@@ -9,11 +9,7 @@ import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import logoMetawork from '@/images/logos/metawork.svg'
 import logoBentoML from '@/images/logos/bentoml.svg'
 import logoPenn from '@/images/logos/penn.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
 
-import { SimpleLayout } from '@/components/SimpleLayout'
 import logoQuan from '@/images/logos/quan.svg'
 import logoShopify from '@/images/logos/shopify.svg'
 import logoNYC from '@/images/logos/nyc.svg'
@@ -65,30 +61,6 @@ function MailIcon(props) {
         d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
       />
     </svg>
-  )
-}
-
-function PenIcon(props) {
-  return (
-    <svg viewBox="0 0 26 26" aria-hidden="true" {...props}>
-      <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-      <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-    </svg>
-  )
-}
-
-function Article({ article }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
   )
 }
 
@@ -181,7 +153,7 @@ function Resume() {
   )
 }
 
-export default function Home({ articles }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -232,20 +204,6 @@ export default function Home({ articles }) {
       </Container>
     </>
   )
-}
-
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
-  }
-
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  }
 }
 
 const projects = [
