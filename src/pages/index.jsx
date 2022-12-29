@@ -167,48 +167,47 @@ const projects = [
 function Projects() {
   return (
     <>
-      <h1 className="mb-10 mt-10 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-        Projects
-      </h1>
-      <ul
-        role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {projects.map((project) => (
-          <Card as="li" key={project.name}>
-            <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8"
-                unoptimized
-              />
-            </div>
-            <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
-            </h2>
-            <Card.Description>{project.description}</Card.Description>
-            <Card.Keywords>{project.keywords}</Card.Keywords>
-            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-sky-600 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">{project.link.label}</span>
-            </p>
-          </Card>
-        ))}
-      </ul>
+      <div className="mt-10">
+        <ul
+          role="list"
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {projects.map((project) => (
+            <Card as="li" key={project.name}>
+              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                <Image
+                  src={project.logo}
+                  alt=""
+                  className="h-8 w-8"
+                  unoptimized
+                />
+              </div>
+              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              </h2>
+              <Card.Description>{project.description}</Card.Description>
+              <Card.Keywords>{project.keywords}</Card.Keywords>
+              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-sky-600 dark:text-zinc-200">
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">{project.link.label}</span>
+              </p>
+            </Card>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }
+
+const linkStyle =
+  'pl-1.5 text-zinc-600/70 hover:text-sky-600/80 dark:text-zinc-300 dark:hover:text-sky-400'
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Quan Nguyen - Software Engineer</title>
-        <meta
-          name="description"
-          content="I’m Quan, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
-        />
+        <meta name="description" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"
@@ -235,9 +234,29 @@ export default function Home() {
               Thanks for stopping by.
             </h1>
             <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              I&#39;m a Computer Science student with former experience
-              contributing to open-source projects, running an online e-commerce
-              business, and working as a finance & analytics professional.
+              I&#39;m Quan Nguyen. I&#39;m a Computer Science student at Penn in
+              the
+              <a
+                className={linkStyle}
+                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
+              >
+                MCIT program
+              </a>
+              . Most recently, I was a
+              <a
+                className={linkStyle}
+                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
+              >
+                Major League Hacking Fellow
+              </a>{' '}
+              and contributed to
+              <a
+                className={linkStyle}
+                href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
+              >
+                BentoML
+              </a>
+              , an open-source framework for operating machine learning models.
             </p>
             <ContactInfo />
           </div>
@@ -245,7 +264,10 @@ export default function Home() {
             <Resume />
           </div>
         </div>
-        <div>
+        <div className="mt-10">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
+            Projects
+          </h1>
           <Projects />
         </div>
       </Container>
