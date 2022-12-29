@@ -60,6 +60,15 @@ function MailIcon(props) {
   )
 }
 
+function PenIcon(props) {
+  return (
+    <svg viewBox="0 0 26 26" aria-hidden="true" {...props}>
+      <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+      <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+    </svg>
+  )
+}
+
 function Article({ article }) {
   return (
     <Card as="article">
@@ -82,32 +91,24 @@ function SocialLink({ className, href, children, icon: Icon }) {
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-sky-600 dark:text-zinc-200 dark:hover:text-sky-400"
       >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-sky-600" />
-        <span className="ml-4">{children}</span>
+        <Icon className="h-6 w-6 fill-zinc-400 transition group-hover:fill-sky-600" />
+        <span className="ml-2">{children}</span>
       </Link>
     </li>
   )
 }
 
-function ContactCard() {
+function ContactInfo() {
   return (
-    <div className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-500/40">
-      <SocialLink href="https://www.github.com/quanvs" icon={GitHubIcon}>
-        Connect on GitHub
+    <div className="mt-6 flex flex-col gap-3">
+      <SocialLink href="https://github.com" icon={GitHubIcon}>
+        GitHub
       </SocialLink>
-      <SocialLink
-        href="https://www.linkedin.com/in/nguyenhq/"
-        icon={LinkedInIcon}
-        className="mt-3"
-      >
-        Connect on LinkedIn
+      <SocialLink href="https://linkedin.com" icon={LinkedInIcon}>
+        LinkedIn
       </SocialLink>
-      <SocialLink
-        href="mailto:quanwnn@gmail.com"
-        icon={MailIcon}
-        className="mt-3"
-      >
-        Email me
+      <SocialLink href="mailto:quanwnn@gmail.com" icon={MailIcon}>
+        Email
       </SocialLink>
     </div>
   )
@@ -200,28 +201,21 @@ export default function Home({ articles }) {
           href="/favicon-16x16.png"
         />
       </Head>
-      <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Thanks for stopping by.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I&#39;m a Computer Science student with former experience
-            contributing to open-source projects, running an online e-commerce
-            business, and working as a finance & analytics professional.
-          </p>
-        </div>
-      </Container>
       <Container className="mt-8">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="space-y-5 lg:pr-16 xl:pr-24">
-            <ContactCard />
-            <Resume />
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              Thanks for stopping by.
+            </h1>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              I&#39;m a Computer Science student with former experience
+              contributing to open-source projects, running an online e-commerce
+              business, and working as a finance & analytics professional.
+            </p>
+            <ContactInfo />
           </div>
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+          <div className="lg:pl-16 xl:pl-24">
+            <Resume />
           </div>
         </div>
       </Container>
