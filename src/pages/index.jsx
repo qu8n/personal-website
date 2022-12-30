@@ -8,8 +8,8 @@ import { SocialLink } from '@/components/SocialLink'
 import {
   GitHubIcon,
   LinkedInIcon,
-  ResumeIcon,
-  ArrowDownIcon,
+  ExperienceIcon,
+  RequestResumeIcon,
   MailIcon,
   LinkIcon,
 } from '@/components/Icons'
@@ -64,7 +64,7 @@ function Resume() {
   return (
     <div className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-500/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <ResumeIcon className="h-6 w-6 flex-none" />
+        <ExperienceIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Experience</span>
       </h2>
       <ol className="mt-6 space-y-4">
@@ -90,9 +90,13 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="https://drive.google.com/drive/folders/1rVwBOCFGicKq4aJwi_s3pGQi1jgJknaO?usp=sharing"
+        variant="secondary"
+        className="group mt-6 w-full"
+      >
+        <RequestResumeIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         Request Resume
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
   )
