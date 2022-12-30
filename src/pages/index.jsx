@@ -91,6 +91,8 @@ function Resume() {
         ))}
       </ol>
       <Button
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://drive.google.com/drive/folders/1rVwBOCFGicKq4aJwi_s3pGQi1jgJknaO?usp=sharing"
         variant="secondary"
         className="group mt-6 w-full"
@@ -187,7 +189,13 @@ function Projects() {
                 />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+                <Card.Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={project.link.href}
+                >
+                  {project.name}
+                </Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
               <Card.Keywords>{project.keywords}</Card.Keywords>
@@ -209,16 +217,28 @@ function Description() {
       I&#39;m Quan Nguyen. I&#39;m a Computer Science student at UPenn in the
       <a
         className={linkStyle}
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://gradadm.seas.upenn.edu/masters/computer-and-information-technology-mcit/"
       >
         MCIT program
       </a>
       . Most recently, I was a
-      <a className={linkStyle} href="https://fellowship.mlh.io/">
+      <a
+        className={linkStyle}
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://fellowship.mlh.io/"
+      >
         Major League Hacking Fellow
       </a>{' '}
       and contributed to
-      <a className={linkStyle} href="https://github.com/bentoml/BentoML">
+      <a
+        className={linkStyle}
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/bentoml/BentoML"
+      >
         BentoML
       </a>
       , an open-source framework for operating machine learning models. Before
