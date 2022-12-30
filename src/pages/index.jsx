@@ -158,8 +158,8 @@ const projects = [
   {
     name: 'This Personal Website',
     description:
-      "Tailwind UI's Spotlight template mod that replaces the multi-page with a minimal one-pager.",
-    keywords: 'JavaScript, React, Next.js, Tailwind CSS',
+      "Tailwind UI's Spotlight template mod that replaces the multi-page with a minimal one-pager. Hosted on Vercel.",
+    keywords: 'JavaScript, React, Next.js, Tailwind CSS, Vercel',
     link: {
       href: 'https://github.com/qu8n/personal-website',
       label: 'GitHub Repo',
