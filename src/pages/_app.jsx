@@ -1,10 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, createElement } from 'react'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
+
+// https://github.com/cahilfoley/react-snowfall
+import Snowfall from 'react-snowfall'
 
 function usePrevious(value) {
   let ref = useRef()
@@ -27,6 +30,12 @@ export default function App({ Component, pageProps, router }) {
         </div>
       </div>
       <div className="relative">
+        <Snowfall
+          speed={[0.5, 4.0]}
+          wind={[0.5, 2.0]}
+          snowflakeCount="25"
+          color="#b6c1f0"
+        />
         <Header />
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
