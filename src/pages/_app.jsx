@@ -31,10 +31,18 @@ export default function App({ Component, pageProps, router }) {
       </div>
       <div className="relative">
         <Snowfall
-          speed={[0.5, 4.0]}
-          wind={[0.5, 2.0]}
-          snowflakeCount="25"
+          speed={[0.1, 2.5]}
+          wind={[0.1, 2.0]}
           color="#b6c1f0"
+          snowflakeCount={75}
+          style={{ opacity: '0.3' }}
+        />
+        <Snowfall
+          speed={[0.1, 2.5]}
+          wind={[0.1, 2.0]}
+          color="#b6c1f0"
+          snowflakeCount={75}
+          style={{ opacity: '0.1' }}
         />
         <Header />
         <main>
