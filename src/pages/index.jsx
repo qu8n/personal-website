@@ -127,7 +127,7 @@ const projects = [
   {
     name: 'Tweet Scheduler',
     description:
-      'Full-stack Ruby on Rails web application that sends out tweets on a scheduled basis.',
+      'Full-stack Ruby on Rails web application that implements user authentication and sends out tweets on a scheduled basis.',
     keywords:
       'Ruby, Ruby on Rails, Twitter API, Sidekiq and Redis (background jobs), PostgreSQL, Boostrap',
     link: {
@@ -160,7 +160,7 @@ const projects = [
   {
     name: 'This Personal Website',
     description:
-      "Tailwind UI's Spotlight template mod that replaces the multi-page with a minimal one-pager. Hosted on Vercel.",
+      'A minimal single-page website consisting of a bio, experience snippet, and projects. Hosted on Vercel with light and dark modes.',
     keywords: 'JavaScript, React, Next.js, Tailwind CSS, Vercel',
     link: {
       href: 'https://github.com/qu8n/personal-website',
