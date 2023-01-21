@@ -214,7 +214,7 @@ function Projects() {
 function Description() {
   return (
     <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
-      I&#39;m Quan Nguyen. I&#39;m a Computer Science student at UPenn in the
+      I&#39;m a Computer Science student at UPenn in the
       <a
         className={linkStyle}
         target="_blank"
@@ -280,7 +280,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-2">
           <div>
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Hi there.
+              Hi there, I&#39;m Quan.
             </h1>
             <Description />
             <ContactInfo />
