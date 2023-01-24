@@ -12,6 +12,7 @@ import {
   RequestResumeIcon,
   MailIcon,
   LinkIcon,
+  CalendarIcon,
 } from '@/components/Icons'
 import logoMetawork from '@/images/logos/metawork.svg'
 import logoBentoML from '@/images/logos/bentoml.svg'
@@ -25,12 +26,15 @@ import logoArc from '@/images/logos/arc.svg'
 
 function ContactInfo() {
   return (
-    <div className="mt-6 flex flex-col gap-3">
+    <div className="mt-2 flex flex-col gap-2">
       <SocialLink href="https://github.com/qu8n" icon={GitHubIcon}>
         GitHub
       </SocialLink>
       <SocialLink href="https://linkedin.com/in/nguyenhq" icon={LinkedInIcon}>
         LinkedIn
+      </SocialLink>
+      <SocialLink href="https://calendly.com/quanx/30min" icon={CalendarIcon}>
+        Calendly
       </SocialLink>
       <SocialLink href="mailto:quanwnn@gmail.com" icon={MailIcon}>
         Email
